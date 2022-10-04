@@ -112,6 +112,7 @@ function Item({
       <sprite
         position={position}
         scale={[width, height, 1]}
+        // @ts-ignore
         center={[0, 1]}
         // Ensure that images still render when they are near the edge of the screen
         frustumCulled={false}
@@ -168,6 +169,7 @@ function MeasureTextNode({
 
     const textHeight = text ? node.getBoundingClientRect().height : 0;
 
+    // @ts-ignore
     setImages((images) => {
       return images.map((image, i) => {
         if (i === index && image.textHeight === null) {
@@ -297,6 +299,7 @@ function Masonry() {
           ? images.map(({ text, id, url }, index) => (
               <React.Suspense fallback={null} key={`${id}-${index}`}>
                 <MeasureTextNode
+                  // @ts-ignore
                   images={images}
                   setImages={setImages}
                   index={index}
